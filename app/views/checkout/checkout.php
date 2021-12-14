@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
 
-?>
 
 <head>
     <meta charset="utf-8" />
@@ -12,9 +8,9 @@ error_reporting(E_ALL);
     <meta name="description" content="A demo of a payment on Stripe" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?= URLROOT ?>public/css/checkout.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="<?= URLROOT ?>public/css/checkout.css" />
     <script src="https://js.stripe.com/v3/"></script>
     <script src="<?= URLROOT ?>public/js/config.js" defer></script>
     <script src="<?= URLROOT ?>public/js/checkout.js" defer></script>
@@ -170,7 +166,7 @@ error_reporting(E_ALL);
             <div class="col-md-4">
                 <div class="row">
                     <div class="col-md-6 form-group">
-                        <img src="<?= URLROOT ?>/public/images/<?= $data['all_pdt']['image'] ?>" alt="Product Image" style="height:250px;width250px;">
+                        <img src="<?= URLROOT ?>public/images/<?= $data['all_pdt']['image'] ?>" alt="Product Image" style="height:250px;width250px;">
                     </div>
                     <div class="col-md-4">
                         <div class="card">

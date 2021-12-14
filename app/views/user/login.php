@@ -1,7 +1,7 @@
 <?php
 @session_start();
 if (isset($_SESSION['user'])) {
-    header("Location: http://localhost/stripe-sample-code/");
+    header("Location: " . URLROOT . "");
     exit();
 } ?>
 <!DOCTYPE html>

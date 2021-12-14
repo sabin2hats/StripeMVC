@@ -27,8 +27,8 @@ class UserModel
 
         // prepare query statement
         $stmt = $this->conn->prepare($query);
-        $email = htmlspecialchars(strip_tags($_POST['email']));
-        $password = htmlspecialchars(strip_tags($_POST['psw']));
+        $email = sanitize($_POST['email']);
+        $password = sanitize($_POST['psw']);
         $stmt->bindParam(":email", $email);
         $stmt->bindParam(":password", sha1($password));
         // print_r($stmt);
@@ -52,9 +52,9 @@ class UserModel
             $stmt = $this->conn->prepare($query);
 
             // sanitize
-            $name = htmlspecialchars(strip_tags($save['name']));
-            $email = htmlspecialchars(strip_tags($save['email']));
-            $phone = htmlspecialchars(strip_tags($save['phone']));
+            $name = sanitize($save['name']);
+            $email = sanitize($save['email']);
+            $phone = sanitize($save['phone']);
             $password = sha1($save['psw']);
 
             // bind values
@@ -77,12 +77,12 @@ class UserModel
             $stmt2 = $this->conn->prepare($query2);
 
             // sanitize
-            $line1 = htmlspecialchars(strip_tags($save['line1']));
-            $line2 = htmlspecialchars(strip_tags($save['line2']));
-            $country_code = htmlspecialchars(strip_tags($save['country']));
-            $state = htmlspecialchars(strip_tags($save['state']));
-            $city = htmlspecialchars(strip_tags($save['city']));
-            $zipcode = htmlspecialchars(strip_tags($save['zipcode']));
+            $line1 = sanitize($save['line1']);
+            $line2 = sanitize($save['line2']);
+            $country_code = sanitize($save['country']);
+            $state = sanitize($save['state']);
+            $city = sanitize($save['city']);
+            $zipcode = sanitize($save['zipcode']);
 
             // bind values
             $stmt2->bindParam(":user_id", $id);

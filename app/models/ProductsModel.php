@@ -1,8 +1,5 @@
 <?php
-function addQuotes($str)
-{
-    return "'$str'";
-}
+
 class ProductsModel extends Database
 {
 
