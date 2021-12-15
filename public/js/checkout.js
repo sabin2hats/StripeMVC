@@ -1,12 +1,9 @@
-// This is your test publishable API key.
-
-// import * as configs from './config.js';
 
 const stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
 
 // The items the customer wants to buy
 // const items = [{ id: "xl-tshirt" }];
-var itemId = document.getElementById("product_id").value;
+var itemId = document.getElementById("productId").value;
 const items = { id: "xl-tshirt",pdtId: itemId };
 // console.log(STRIPE_PUBLISHABLE_KEY);
 var payIntid ='';
@@ -29,7 +26,6 @@ async function initialize() {
 
   elements = stripe.elements({ clientSecret });
   payIntid = id;
-  // const paymentElement = elements.create("payment");
   var paymentElement = elements.create('payment', {
     fields: {
       billingDetails: {
@@ -46,22 +42,22 @@ async function initialize() {
 async function handleSubmit(e) {
   e.preventDefault();
   setLoading(true);
-  $(".valid_address").text('');
-  var cstName = document.getElementById("cst_name").value;
-  var cstEmail = document.getElementById("cst_email").value;
-  var billLine1 = document.getElementById("bill_line1").value;
-  var billLine2 = document.getElementById("bill_line2").value;
-  var billCity = document.getElementById("bill_city").value;
-  var billZip = document.getElementById("bill_zip").value;
-  var billState = document.getElementById("bill_state").value; 
-  var shipLine1 = document.getElementById("ship_line1").value;
-  var shipLine2 = document.getElementById("ship_line2").value;
-  var shipCity = document.getElementById("ship_city").value;
-  var shipZip = document.getElementById("ship_zip").value;
-  var shipCountry = document.getElementById("ship_country").value; 
-  var shipState = document.getElementById("ship_state").value; 
-  var shipName = document.getElementById("ship_name").value; 
-  var div = document.getElementsByClassName('panel_custom');
+  $(".valid-address").text('');
+  var cstName = document.getElementById("cstName").value;
+  var cstEmail = document.getElementById("cstEmail").value;
+  var billLine1 = document.getElementById("billLine1").value;
+  var billLine2 = document.getElementById("billLine2").value;
+  var billCity = document.getElementById("billCity").value;
+  var billZip = document.getElementById("billZip").value;
+  var billState = document.getElementById("billState").value; 
+  var shipLine1 = document.getElementById("shipLine1").value;
+  var shipLine2 = document.getElementById("shipLine2").value;
+  var shipCity = document.getElementById("shipCity").value;
+  var shipZip = document.getElementById("shipZip").value;
+  var shipCountry = document.getElementById("shipCountry").value; 
+  var shipState = document.getElementById("shipState").value; 
+  var shipName = document.getElementById("shipName").value; 
+  var div = document.getElementsByClassName('panel-custom');
   var i = 0 ;
   var formData={};
   formData['product_id'] = items.pdtId;
@@ -86,7 +82,7 @@ async function handleSubmit(e) {
   
     if(formData){
       $.ajax({
-        url: URLROOT+"checkout/createOrder",
+        url: URLROOT+"orders/createOrder",
         method : "POST",
         data:{formdata:JSON.stringify(formData)},
       }).done(function( data ) {
